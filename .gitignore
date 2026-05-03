@@ -1,0 +1,34 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pycache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test and tooling artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local runtime data
+portfolio.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Secrets and env config
+.env
+.env.*
+
+# IDE/editor files
+.idea/
+.vscode/
+
+# OS noise
+.DS_Store
