@@ -12,8 +12,8 @@ This project intentionally pins older versions to help test dependency update au
 - `SQLAlchemy==1.4.49` (1.x line)
 - `pandas==1.5.3`
 - `numpy==1.24.4` (pinned to match `pandas==1.5.3` ABI expectations)
-- `nose==1.3.7` (deprecated test framework for unit/integration tests)
 - `httpx==0.27.2` (for FastAPI/Starlette test client)
+- `pytest==8.3.5`
 
 ## Setup
 
@@ -54,14 +54,13 @@ pip install --force-reinstall -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-## Run tests (deprecated framework on purpose)
+## Run tests
 
 ```bash
-python scripts/run_nose.py
+PYTHONPATH=. pytest -v tests
 ```
 
-The repository includes both unit and integration tests, and intentionally uses deprecated `nose` to create realistic dependency upgrade PRs for automation agents.
-`scripts/run_nose.py` applies a minimal compatibility shim so legacy `nose` can run on modern Python versions.
+The repository includes both unit and integration tests and now runs them with `pytest`.
 
 ## API quickstart
 
