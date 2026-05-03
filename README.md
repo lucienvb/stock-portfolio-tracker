@@ -6,13 +6,14 @@ Small FastAPI service for tracking stock holdings and calculating portfolio valu
 
 This project intentionally pins older versions to help test dependency update automation:
 
-- `fastapi==0.95.2`
-- `pydantic==1.10.12` (v1, not v2)
+- `fastapi==0.115.0` (updated to support Pydantic v2)
+- `pydantic==2.13.3`
 - `requests==2.28.2`
 - `SQLAlchemy==1.4.49` (1.x line)
 - `pandas==1.5.3`
 - `numpy==1.24.4` (pinned to match `pandas==1.5.3` ABI expectations)
 - `nose==1.3.7` (deprecated test framework for unit/integration tests)
+- `httpx==0.27.2` (for FastAPI/Starlette test client)
 
 ## Setup
 
@@ -21,7 +22,7 @@ brew install python@3.10
 rm -rf .venv
 python3.10 -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade "pip<25" "setuptools<81" wheel
+python -m pip install --upgrade "pip<26" "setuptools<81" wheel
 pip install -r requirements.txt
 ```
 
@@ -29,6 +30,16 @@ If you previously installed with a different dependency graph, force reinstall o
 
 ```bash
 pip install --force-reinstall -r requirements.txt
+```
+
+If you had old FastAPI/Pydantic v1 packages installed before this migration, a clean reinstall is safest:
+
+```bash
+rm -rf .venv
+python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade "pip<26" "setuptools<81" wheel
+pip install -r requirements.txt
 ```
 
 If tests fail with `ModuleNotFoundError: No module named 'httpx'`, reinstall deps in the active venv:

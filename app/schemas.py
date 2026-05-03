@@ -22,8 +22,7 @@ class HoldingUpdate(BaseModel):
 class HoldingResponse(HoldingBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
 
 
 class HoldingValuation(BaseModel):
