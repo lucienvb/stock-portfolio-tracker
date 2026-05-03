@@ -26,6 +26,5 @@ jobs:
       - name: Validate imports and syntax
         run: python -m compileall app tests
 
-      # Intentionally uses deprecated nose to test dependency automation tooling.
       - name: Run unit and integration tests
-        run: python scripts/run_nose.py
+        run: PYTHONPATH=. pytest -v tests
